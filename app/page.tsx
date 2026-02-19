@@ -5,6 +5,8 @@ import { statsData } from "@/data/statsData";
 import { serviceData } from "@/data/serviceData";
 import InfoHome2 from "@/components/InfoHome2";
 import InfoHome3 from "@/components/InfoHome3";
+import ServiceProcess from "@/components/ServiceProcess";
+import CarServiceGallery from "@/components/CarServiceGallery";
 
 const Home=()=>{
 return (
@@ -15,6 +17,8 @@ return (
   <Stats Data={serviceData} />
   <InfoHome2 />
   <InfoHome3 />
+  <ServiceProcess />
+  <CarServiceGallery />
   </div>
 );
 }
