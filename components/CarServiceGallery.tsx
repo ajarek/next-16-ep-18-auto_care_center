@@ -9,6 +9,8 @@ import {
 } from "@/components/ui/card"
 import { carServiceGallery } from "@/data/carServiceGallery"
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
+import Stats  from "@/components/Stats";
+import { statsGallery } from "@/data/statsGallery";
 
 const CarServiceGallery = () => {
   return (
@@ -52,6 +54,7 @@ const CarServiceGallery = () => {
           </Card>
         ))}
       </div>
+      <Stats Data={statsGallery} />
     </section>
   )
 }

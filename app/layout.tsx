@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Roboto, Pacifico } from "next/font/google"
 import "./globals.css"
 import Navbar from "@/components/Navbar"
+import Footer from "@/components/Footer"
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -26,9 +27,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='pl' className={roboto.variable}>
-      <body className={`${pacifico.variable} antialiased`}>
+      <body
+        className={`${pacifico.variable} antialiased flex flex-col min-h-screen`}
+      >
         <Navbar />
-        {children}</body>
+        <main className='grow'>{children}</main>
+        <Footer />
+      </body>
     </html>
   )
 }
