@@ -2,6 +2,7 @@ import CarCare from '@/components/CarCare'
 import Header from '@/components/Header'
 import InfoService1 from '@/components/InfoService1'
 import InfoService2 from '@/components/InfoService2'
+import InfoService3 from '@/components/InfoService3'
 
 
 const Services = () => {
@@ -12,6 +13,7 @@ MOTORYZACYJNE" description="Kompleksowe rozwiązania w zakresie konserwacji i na
         <CarCare />
         <InfoService1 />
        <InfoService2 />
+       <InfoService3 />
     </div>
   )
 }
