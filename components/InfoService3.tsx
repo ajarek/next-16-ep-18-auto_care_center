@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 const InfoService3 = () => {
   return (
@@ -11,7 +12,9 @@ const InfoService3 = () => {
         <p className='max-w-xl text-center text-xl'>
          Odkryj różnicę, jaką oferuje AutoCare. Umów się na wizytę już dziś i pozwól naszym certyfikowanym mechanikom zająć się Twoim pojazdem z profesjonalizmem, na jaki zasługuje.
         </p>
-        <Button className='text-lg md:text-xl lg:text-2xl px-4 py-2 md:py-6 md:px-8 lg:px-12 rounded-none font-bold uppercase tracking-wider cursor-pointer'>Umów się na wizytę</Button>
+        <Button asChild className='text-lg md:text-xl lg:text-2xl px-4 py-2 md:py-6 md:px-8 lg:px-12 rounded-none font-bold uppercase tracking-wider cursor-pointer'>
+          <Link href='/reservation'>Umów się na wizytę</Link>
+        </Button>
       </div>
     </section>
   )

@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { Wrench, ShieldCheck, Clock, Star, ChevronRight } from "lucide-react"
+import Link from "next/link"
 
 const features = [
   {
@@ -84,13 +85,13 @@ const InfoService1 = () => {
         </ul>
 
         {/* CTA */}
-        <a
-          href='#'
+        <Link
+          href='/reservation'
           className='inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-6 py-3 rounded-xl w-fit transition-all duration-200 hover:gap-3 mt-2 text-sm shadow-md'
         >
           Umów wizytę serwisową
           <ChevronRight className='w-4 h-4' />
-        </a>
+        </Link>
       </div>
     </section>
   )
