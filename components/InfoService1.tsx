@@ -28,28 +28,23 @@ const features = [
 const InfoService1 = () => {
   return (
     <section className='w-full grid grid-cols-1 md:grid-cols-2 items-center justify-center place-items-center bg-secondary-foreground/50 md:p-16 p-4 gap-8'>
-      {/* Image column */}
       <div className='relative w-full md:w-[520px] aspect-square order-2 md:order-1'>
         <div className='absolute inset-0 rounded-2xl overflow-hidden'>
           <Image
             src='/services-2.jpg'
-            alt='Profesjonalny serwis samochodowy'
+            alt='Profesjonalny serwis samochodowy AutoCare Center'
             fill
             className='object-cover object-center'
             sizes='(max-width: 768px) 100vw, 520px'
           />
-          {/* Subtle overlay gradient */}
           <div className='absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent rounded-2xl' />
         </div>
-        {/* Badge */}
         <div className='absolute bottom-6 left-6 bg-primary text-primary-foreground font-bold px-5 py-3 rounded-xl text-sm shadow-lg'>
           Ponad 20 lat doświadczenia
         </div>
-        {/* Decorative border accent */}
         <div className='absolute -top-3 -right-3 w-20 h-20 border-4 border-primary rounded-2xl opacity-40 pointer-events-none' />
       </div>
 
-      {/* Content column */}
       <div className='flex flex-col gap-6 px-4 md:px-8 order-1 md:order-2 w-full'>
         <div className='flex flex-col gap-2'>
           <span className='text-primary font-semibold uppercase tracking-widest text-sm'>
@@ -67,7 +62,6 @@ const InfoService1 = () => {
           zespołowi.
         </p>
 
-        {/* Features list */}
         <ul className='flex flex-col gap-4'>
           {features.map((feature, idx) => (
             <li key={idx} className='flex items-start gap-4 group'>
@@ -84,7 +78,6 @@ const InfoService1 = () => {
           ))}
         </ul>
 
-        {/* CTA */}
         <Link
           href='/reservation'
           className='inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-6 py-3 rounded-xl w-fit transition-all duration-200 hover:gap-3 mt-2 text-sm shadow-md'

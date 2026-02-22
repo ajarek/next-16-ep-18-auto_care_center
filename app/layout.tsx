@@ -3,6 +3,7 @@ import { Roboto, Pacifico } from "next/font/google"
 import "./globals.css"
 import Navbar from "@/components/Navbar"
 import Footer from "@/components/Footer"
+import { Toaster } from "sonner"
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -16,8 +17,40 @@ const pacifico = Pacifico({
 })
 
 export const metadata: Metadata = {
-  title: "Auto Care Center",
-  description: "Auto Care Center",
+  title: {
+    default: "AutoCare Center | Profesjonalny Serwis Samochodowy w Kołobrzegu",
+    template: "%s | AutoCare Center",
+  },
+  description:
+    "AutoCare Center – profesjonalne usługi konserwacji i napraw samochodowych w Kołobrzegu. Ponad 20 lat doświadczenia, certyfikowani technicy, szybka realizacja i gwarancja jakości.",
+  keywords: [
+    "serwis samochodowy Kołobrzeg",
+    "warsztat samochodowy",
+    "naprawa samochodów",
+    "wymiana oleju",
+    "diagnostyka komputerowa",
+    "serwis hamulców",
+    "AutoCare",
+    "mechanik Kołobrzeg",
+  ],
+  authors: [{ name: "AutoCare Center" }],
+  creator: "AutoCare Center",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "pl_PL",
+    siteName: "AutoCare Center",
+    title: "AutoCare Center | Profesjonalny Serwis Samochodowy w Kołobrzegu",
+    description:
+      "Profesjonalne usługi konserwacji i napraw samochodowych z ponad 20-letnim doświadczeniem. Certyfikowani technicy, nowoczesny sprzęt, gwarancja jakości.",
+  },
 }
 
 export default function RootLayout({
@@ -33,6 +66,7 @@ export default function RootLayout({
         <Navbar />
         <main className='grow'>{children}</main>
         <Footer />
+        <Toaster />
       </body>
     </html>
   )

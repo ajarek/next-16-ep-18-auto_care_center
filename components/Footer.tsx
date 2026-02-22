@@ -12,18 +12,15 @@ import {
 } from "lucide-react"
 import { motion } from "motion/react"
 import { Input } from "./ui/input"
+import { toast } from "sonner"
 
 const Footer = () => {
   return (
     <footer className='relative bg-background border-t border-border pt-20 pb-10 overflow-hidden'>
       <div className='container mx-auto px-6'>
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20 relative z-10'>
-          {/* Branding Section */}
           <div className='space-y-8'>
-            <Link
-              href='/'
-              className='flex items-center gap-0 group'
-            >
+            <Link href='/' className='flex items-center gap-0 group'>
               <motion.div
                 whileHover={{ rotate: 15 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -44,13 +41,14 @@ const Footer = () => {
             </p>
             <div className='flex gap-4'>
               {[
-                { Icon: Facebook, href: "#" },
-                { Icon: Instagram, href: "#" },
-                { Icon: Twitter, href: "#" },
+                { Icon: Facebook, href: "#", label: "Facebook AutoCare" },
+                { Icon: Instagram, href: "#", label: "Instagram AutoCare" },
+                { Icon: Twitter, href: "#", label: "Twitter AutoCare" },
               ].map((social, idx) => (
                 <motion.a
                   key={idx}
                   href={social.href}
+                  aria-label={social.label}
                   whileHover={{ y: -5, scale: 1.1 }}
                   className='h-10 w-10 rounded-full border border-border flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300'
                 >
@@ -60,7 +58,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links Section */}
           <div className='space-y-8'>
             <h3 className='text-xl font-bold flex items-center gap-2'>
               Usługi
@@ -68,11 +65,11 @@ const Footer = () => {
             </h3>
             <ul className='grid grid-cols-1 gap-4'>
               {[
-                { name: "Wymiana Oleju", path: "#" },
-                { name: "Serwis Hamulców", path: "#" },
-                { name: "Diagnostyka Komp.", path: "#" },
-                { name: "Serwis Klimatyzacji", path: "#" },
-                { name: "Geometria Kół", path: "#" },
+                { name: "Wymiana Oleju", path: "/services" },
+                { name: "Serwis Hamulców", path: "/services" },
+                { name: "Diagnostyka Komp.", path: "/services" },
+                { name: "Serwis Klimatyzacji", path: "/services" },
+                { name: "Geometria Kół", path: "/services" },
               ].map((link) => (
                 <li key={link.name}>
                   <Link
@@ -87,7 +84,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact Section */}
           <div className='space-y-8'>
             <h3 className='text-xl font-bold flex items-center gap-2'>
               Kontakt
@@ -100,7 +96,7 @@ const Footer = () => {
                 </div>
                 <div>
                   <p className='font-semibold text-foreground'>Lokalizacja</p>
-                  <p className='text-sm'>ul. Serwisowa 12, 00-001 Warszawa</p>
+                  <p className='text-sm'>ul. Serwisowa 12, Kołobrzeg</p>
                 </div>
               </div>
               <div className='flex items-start gap-4 text-muted-foreground group'>
@@ -124,7 +120,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Newsletter Section */}
           <div className='space-y-8'>
             <h3 className='text-xl font-bold flex items-center gap-2'>
               Newsletter
@@ -134,27 +129,36 @@ const Footer = () => {
               Bądź na bieżąco z okazjami i poradami eksperckimi dotyczącymi
               Twojego samochodu.
             </p>
-            <div className='relative group'>
+            <form
+              className='relative group'
+              onSubmit={(e) => {
+                e.preventDefault()
+                toast.success("Dziękujemy za zapisanie się na newsletter!")
+                ;(e.target as HTMLFormElement).reset()
+              }}
+            >
               <Input
                 type='email'
                 placeholder='Twój e-mail'
                 className='w-full bg-background border border-border rounded-xl px-5 h-12 pr-14 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all duration-300'
+                required
               />
               <motion.button
+                type='submit'
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
+                aria-label='Zapisz się na newsletter'
                 className='absolute right-2 top-2 bottom-2 aspect-square bg-primary text-primary-foreground rounded-lg flex items-center justify-center shadow-lg hover:shadow-primary/30 transition-shadow'
               >
                 <ArrowRight size={20} />
               </motion.button>
-            </div>
+            </form>
             <p className='text-[10px] text-muted-foreground italic'>
               *Zapisując się akceptujesz naszą politykę prywatności.
             </p>
           </div>
         </div>
 
-        {/* Bottom Bar */}
         <div className='pt-10 border-t border-border flex flex-col md:flex-row justify-between items-center gap-6 relative z-10'>
           <div className='flex items-center gap-2'>
             <p className='text-muted-foreground text-sm'>
@@ -189,11 +193,8 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Creative Background Elements */}
       <div className='absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-border to-transparent' />
       <div className='absolute bottom-[-100px] left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-primary/5 blur-[150px] rounded-full pointer-events-none' />
-
-      {/* Animated tire track or something subtle? Maybe just a mesh gradient */}
       <div className='absolute top-1/2 left-0 -translate-y-1/2 w-64 h-64 bg-primary/3 blur-[100px] rounded-full pointer-events-none' />
       <div className='absolute top-1/4 right-0 w-48 h-48 bg-primary/2 blur-[80px] rounded-full pointer-events-none' />
     </footer>

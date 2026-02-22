@@ -229,7 +229,6 @@ export default function ReservationPage() {
 
   return (
     <div className='min-h-screen bg-background'>
-      {/* Hero Section */}
       <div className='relative overflow-hidden bg-secondary-foreground/30 py-16 px-4'>
         <div className='absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5 pointer-events-none' />
         <div
@@ -251,7 +250,6 @@ export default function ReservationPage() {
             nam resztę.
           </p>
 
-          {/* Trust badges */}
           <div className='flex flex-wrap items-center justify-center gap-6 mt-8'>
             {[
               { icon: Shield, text: "Gwarancja jakości" },
@@ -270,9 +268,7 @@ export default function ReservationPage() {
         </div>
       </div>
 
-      {/* Main Content */}
       <div className='max-w-4xl mx-auto px-4 py-12'>
-        {/* Stepper */}
         {!submitted && (
           <div className='flex items-center justify-center mb-10'>
             {STEPS.map((s, i) => (
@@ -316,7 +312,6 @@ export default function ReservationPage() {
           </div>
         )}
 
-        {/* Step 0: Select Service */}
         {step === 0 && (
           <div className='animate-in fade-in-0 slide-in-from-right-4 duration-300'>
             <h2 className='text-2xl font-bold mb-2 text-center'>
@@ -376,7 +371,6 @@ export default function ReservationPage() {
           </div>
         )}
 
-        {/* Step 1: Date & Time */}
         {step === 1 && (
           <div className='animate-in fade-in-0 slide-in-from-right-4 duration-300'>
             <h2 className='text-2xl font-bold mb-2 text-center'>
@@ -387,9 +381,7 @@ export default function ReservationPage() {
             </p>
 
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-6'>
-              {/* Calendar */}
               <div className='bg-secondary-foreground/20 rounded-2xl border border-foreground/10 p-4'>
-                {/* Calendar Header */}
                 <div className='flex items-center justify-between mb-4'>
                   <button
                     onClick={prevMonth}
@@ -408,7 +400,6 @@ export default function ReservationPage() {
                   </button>
                 </div>
 
-                {/* Day names */}
                 <div className='grid grid-cols-7 mb-2'>
                   {DAYS_PL.map((d) => (
                     <div
@@ -420,7 +411,6 @@ export default function ReservationPage() {
                   ))}
                 </div>
 
-                {/* Days */}
                 <div className='grid grid-cols-7 gap-y-1'>
                   {Array.from({ length: adjustedFirstDay }).map((_, i) => (
                     <div key={`empty-${i}`} />
@@ -473,7 +463,6 @@ export default function ReservationPage() {
                 )}
               </div>
 
-              {/* Time Slots */}
               <div>
                 <div className='flex items-center gap-2 mb-4'>
                   <Clock className='size-4 text-primary' />
@@ -533,7 +522,6 @@ export default function ReservationPage() {
           </div>
         )}
 
-        {/* Step 2: Contact Details */}
         {step === 2 && (
           <div className='animate-in fade-in-0 slide-in-from-right-4 duration-300 max-w-2xl mx-auto'>
             <h2 className='text-2xl font-bold mb-2 text-center'>Twoje dane</h2>
@@ -542,7 +530,6 @@ export default function ReservationPage() {
             </p>
 
             <div className='space-y-6'>
-              {/* Vehicle info */}
               <div className='bg-secondary-foreground/20 rounded-2xl border border-foreground/10 p-5'>
                 <div className='flex items-center gap-2 mb-4'>
                   <Car className='size-4 text-primary' />
@@ -596,7 +583,6 @@ export default function ReservationPage() {
                 </div>
               </div>
 
-              {/* Contact info */}
               <div className='bg-secondary-foreground/20 rounded-2xl border border-foreground/10 p-5'>
                 <div className='flex items-center gap-2 mb-4'>
                   <User className='size-4 text-primary' />
@@ -650,7 +636,6 @@ export default function ReservationPage() {
                 </div>
               </div>
 
-              {/* Notes */}
               <div className='bg-secondary-foreground/20 rounded-2xl border border-foreground/10 p-5'>
                 <div className='flex items-center gap-2 mb-4'>
                   <Wrench className='size-4 text-primary' />
@@ -670,7 +655,6 @@ export default function ReservationPage() {
           </div>
         )}
 
-        {/* Step 3: Confirmation */}
         {step === 3 && submitted && (
           <div className='animate-in fade-in-0 zoom-in-95 duration-500 max-w-lg mx-auto text-center'>
             <div className='relative mb-8'>
@@ -693,7 +677,6 @@ export default function ReservationPage() {
               <span className='text-primary'>{email}</span>.
             </p>
 
-            {/* Summary card */}
             <div className='bg-secondary-foreground/20 rounded-2xl border border-foreground/10 p-6 text-left space-y-4 mb-8'>
               <h3 className='font-semibold text-center text-foreground/80 mb-4'>
                 Szczegóły rezerwacji
@@ -764,7 +747,6 @@ export default function ReservationPage() {
           </div>
         )}
 
-        {/* Navigation buttons */}
         {!submitted && (
           <div className='flex items-center justify-between mt-10 max-w-2xl mx-auto'>
             <Button
